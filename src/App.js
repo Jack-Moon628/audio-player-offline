@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Simple from './component/Simple/Simple';
+import WithPlaylist from './component/WithPlaylist/WithPlaylist';
+import Unstyled from './component/Unstyled/Unstyled';
+import CustomPlaylist from './component/CustomPlaylist/CustomPlaylist';
+import Fixed from './component/Fixed/Fixed';
+
+const rowStyle = {display: 'flex', marginTop: '40px'};
+const playlistContainerStyle = {margin: 'auto'};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <div style={rowStyle}>
+            <div style={playlistContainerStyle}><Simple /></div>
+            <div style={playlistContainerStyle}><WithPlaylist /></div>
+        </div>
+        <div style={rowStyle}>
+            <div style={{...playlistContainerStyle, width: '320px'}}><Unstyled /></div>
+            <div style={playlistContainerStyle}><CustomPlaylist /></div>
+        </div>
+        <Fixed />
     </div>
   );
 }
